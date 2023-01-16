@@ -1,0 +1,114 @@
+@use '../default-modules/color-palate' as color;
+@use '../default-modules/mixin' as mixin;
+
+.container-project.dark-mode {
+  background-color: color.$dark-mode;
+  color: #f6f6f6;
+}
+
+.container-project {
+  padding: 1rem;
+  background-color: color.$light-mode;
+  color: color.$font-color;
+
+  .header {
+    @include mixin.header;
+  }
+
+  .cards-project {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin: 1rem auto;
+    gap: 20px;
+
+    .card.dark-mode {
+      background-color: color.$dark-primary-color;
+      color: color.$font-color;
+    }
+
+    .card {
+      background-color: color.$light-secondary-color;
+      padding: 1rem;
+      border-radius: 13px;
+
+      .desc-card {
+        margin: 1rem auto;
+
+        .technology {
+          @include mixin.flex(flex-start);
+          flex-wrap: wrap;
+          margin: 1rem auto;
+          gap: 10px;
+
+          .icons {
+            @include mixin.borderIcons(#212121);
+            padding: 5px;
+            border-radius: 13px;
+            opacity: 0.6;
+          }
+
+          .react {
+            @include mixin.borderIcons(#12687b);
+            color: #12687b;
+          }
+
+          .css {
+            @include mixin.borderIcons(#063970);
+            color: #063970;
+          }
+
+          .api {
+            @include mixin.borderIcons(#212121);
+            color: #212121;
+          }
+
+          .html {
+            @include mixin.borderIcons(#852c2e);
+            color: #852c2e;
+          }
+
+          .js {
+            @include mixin.borderIcons(#f7e11c);
+            color: #f7e11c;
+          }
+
+          .webpack {
+            @include mixin.borderIcons(#8ed6fb);
+            color: #8ed6fb;
+          }
+
+          .icons:hover {
+            opacity: 1;
+          }
+        }
+
+        .btn-project {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 15px;
+          padding: 10px 0;
+        }
+
+        .btn-project:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .img-card {
+        width: 70%;
+        margin: auto;
+
+        .img {
+          overflow: hidden;
+          @include mixin.imageWidth;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+
+    .card:hover .img {
+      transform: scale(1.2);
+    }
+  }
+}

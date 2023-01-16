@@ -1,0 +1,105 @@
+@use '../default-modules/mixin' as mixin;
+@use '../default-modules/color-palate' as color;
+
+.main.dark-mode {
+  background-color: color.$dark-mode;
+  color: #f6f6f6;
+}
+
+.main {
+  @include mixin.flex(space-evenly);
+  padding: 1rem;
+  height: 80vh;
+  border-radius: 0 0 14px 14px;
+  background-color: color.$light-mode;
+
+  .desc-me {
+    h2,
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  .image-main {
+    width: 30%;
+
+    .img {
+      @include mixin.imageWidth;
+      border-radius: 50%;
+    }
+  }
+}
+
+// contact
+.contact-me.dark-mode {
+  background-color: color.$dark-mode;
+  color: #f6f6f6;
+
+  .link-contact {
+    border: 2px solid color.$btn-color;
+    color: #f6f6f6;
+  }
+
+  .link-contact:hover {
+    background-color: color.$btn-color;
+    color: #f6f6f6;
+  }
+}
+
+.contact-me {
+  padding: 3rem 0;
+  text-align: center;
+  background-color: color.$light-mode;
+  color: color.$font-color;
+
+  h2 {
+    font-size: 3em;
+  }
+
+  .link-contact {
+    padding: 1rem;
+    display: inline-block;
+    border: 2px solid color.$btn-color;
+    border-radius: 14px;
+    color: color.$font-color;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+
+  .link-contact:hover {
+    background-color: color.$btn-color;
+  }
+}
+
+// query for handphone
+@media screen and (max-width: 600px) {
+  .main {
+    .desc-me {
+      h2,
+      h1,
+      p {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+// query for tablet
+@media screen and (max-width: 800px) {
+  .main {
+    flex-direction: column;
+
+    .desc-me {
+      order: 2;
+      text-align: center;
+
+      .btn-cv {
+        font-size: 1.2em;
+      }
+    }
+
+    .image-main {
+      width: 70%;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@use '../default-modules/mixin' as mixin;
+@use '../default-modules/color-palate' as color;
+
+// navbar
+
+.navbar.dark-mode {
+  background-color: color.$dark-primary-color;
+  color: color.$font-color;
+  text-shadow: none;
+}
+
+.navbar {
+  @include mixin.flex(space-between);
+  padding: 1rem;
+  background-color: color.$light-primary-color;
+
+  .list-items {
+    @include mixin.flex(space-evenly);
+    gap: 2rem;
+
+    .item {
+      @include mixin.flex(center);
+      flex-direction: column;
+
+      .link-item {
+        text-align: center;
+        color: color.$font-color;
+      }
+
+      .link-item:hover {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .toggle-theme {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list-items {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    backdrop-filter: blur(6px);
+  }
+}

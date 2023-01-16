@@ -1,0 +1,68 @@
+@use '../default-modules/color-palate' as color;
+@use '../default-modules/mixin' as mixin;
+
+// about
+.container-about.dark-mode {
+  background-color: color.$dark-primary-color;
+  color: color.$font-color;
+  text-shadow: none;
+}
+
+.container-about {
+  padding: 2rem 1rem;
+  background-color: color.$light-secondary-color;
+
+  .header {
+    @include mixin.header;
+    margin-bottom: 1rem;
+  }
+
+  .content-about {
+    width: 80%;
+    margin: auto;
+    @include mixin.flex(center);
+
+    .about {
+      width: 70%;
+    }
+
+    .img-about {
+      width: 100%;
+
+      .img {
+        @include mixin.imageWidth;
+      }
+    }
+  }
+}
+
+// media query tab
+@media screen and (max-width: 800px) {
+  .container-about {
+    .content-about {
+      width: 100%;
+      flex-direction: column;
+
+      .about {
+        text-align: center;
+        width: 90%;
+        order: 2;
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+// media query handphone
+@media screen and (max-width: 600px) {
+  .container-about {
+    .header {
+      margin-bottom: 2.3rem;
+    }
+    .content-about {
+      .about {
+        font-size: 1.2em;
+      }
+    }
+  }
+}

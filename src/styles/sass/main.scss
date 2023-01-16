@@ -1,0 +1,10 @@
+@use './default-modules/reset';
+@use './sass-modules/navbar';
+@use './sass-modules/main';
+@use './sass-modules/about';
+@use './sass-modules/project';
+@use './sass-modules/certification';
+@use './sass-modules/contact';
+@use './sass-modules/footer';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab');

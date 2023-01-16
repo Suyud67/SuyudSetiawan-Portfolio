@@ -1,0 +1,58 @@
+@use '../default-modules/mixin' as mixin;
+@use '../default-modules/color-palate' as color;
+
+.container-sertif.dark-mode {
+  background-color: color.$dark-mode;
+  color: #f6f6f6;
+}
+
+.container-sertif {
+  padding: 1rem;
+  background-color: color.$light-mode;
+
+  .header {
+    @include mixin.header;
+    margin-bottom: 1rem;
+  }
+
+  .sertifications {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 10rem;
+
+    .img-sertif {
+      width: 100%;
+      position: relative;
+
+      .img {
+        @include mixin.imageWidth;
+      }
+
+      .sertif-desc {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        color: #212121;
+        border-radius: 12px 12px 0 0;
+        z-index: 1;
+        backdrop-filter: blur(10px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container-sertif {
+    .sertifications {
+      .img-sertif {
+        .sertif-desc {
+          bottom: 3px;
+          right: 3px;
+        }
+      }
+    }
+  }
+}

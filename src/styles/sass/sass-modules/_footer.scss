@@ -1,0 +1,11 @@
+@use '../default-modules/color-palate' as color;
+
+footer {
+  background-color: color.$light-primary-color;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer.dark-mode {
+  background-color: color.$dark-primary-color;
+}

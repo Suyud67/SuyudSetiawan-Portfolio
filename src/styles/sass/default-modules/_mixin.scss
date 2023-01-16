@@ -1,0 +1,25 @@
+// maxin for navbar
+@mixin flex($jContent) {
+  display: flex;
+  justify-content: $jContent;
+  align-items: center;
+}
+
+@mixin header {
+  text-align: center;
+}
+
+@mixin imageWidth {
+  width: 100%;
+}
+
+@mixin inputForm($fSize) {
+  width: 100%;
+  font-size: $fSize;
+  margin-bottom: 1rem;
+  padding: 10px;
+}
+
+@mixin borderIcons($color) {
+  border: 2px solid $color;
+}

@@ -1,0 +1,150 @@
+@use '../default-modules/color-palate' as color;
+@use '../default-modules/mixin' as mixin;
+
+.container-contact.dark-mode {
+  background-color: color.$dark-secondary-color;
+  color: #f6f6f6;
+}
+
+.container-contact {
+  height: 100vh;
+  padding: 1rem;
+  @include mixin.flex(space-evenly);
+  background-color: color.$light-secondary-color;
+
+  .header {
+    @include mixin.header;
+    margin-bottom: 1rem;
+    font-size: 1.3em;
+  }
+
+  // form
+  .form {
+    width: 40%;
+
+    .dark-mode {
+      #username,
+      #message,
+      #btnSubmit {
+        color: #f6f6f6;
+      }
+    }
+
+    #username {
+      @include mixin.inputForm(18px);
+      border: none;
+      background: none;
+      border-left: 3px solid color.$btn-color;
+      border-right: 3px solid color.$btn-color;
+      outline: none;
+    }
+
+    #username:focus {
+      outline: color.$btn-color solid 2px;
+    }
+
+    #message {
+      @include mixin.inputForm(18px);
+      resize: none;
+      border: none;
+      background: none;
+      border-top: 3px solid color.$btn-color;
+      border-bottom: 3px solid color.$btn-color;
+      outline: none;
+    }
+
+    #message:focus {
+      outline: color.$btn-color solid 3px;
+    }
+
+    #btnSubmit {
+      padding: 0.6rem 1rem;
+      font-size: 1.1em;
+      background: none;
+      border: 4px solid color.$btn-color;
+      border-radius: 14px;
+      cursor: pointer;
+      color: color.$dark-mode;
+    }
+
+    #btnSubmit:hover {
+      background-color: color.$btn-color;
+    }
+  }
+
+  // social media
+  .social-media {
+    .icon-social-media {
+      @include mixin.flex(space-evenly);
+      gap: 20px;
+
+      .link-icon.dark-mode {
+        .icon {
+          color: #f6f6f6;
+        }
+      }
+
+      .link-icon {
+        font-size: 2em;
+
+        .icon {
+          transition: all 0.2s ease;
+        }
+      }
+
+      .link-icon:hover .icon {
+        transform: scale(1.4);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container-contact {
+    width: 100%;
+    flex-direction: column;
+
+    // form
+    .form {
+      width: 80%;
+    }
+
+    // social media
+    .social-media {
+      .header {
+        p {
+          font-size: 1.2em;
+        }
+      }
+
+      .icon-social-media {
+        .link-icon {
+          font-size: 3em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container-contact {
+    // form
+    .form {
+      width: 100%;
+    }
+
+    // social media
+    .social-media {
+      .header {
+        p {
+          font-size: 1em;
+        }
+      }
+      .icon-social-media {
+        .link-icon {
+          font-size: 2.5em;
+        }
+      }
+    }
+  }
+}
